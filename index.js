@@ -1,33 +1,29 @@
-module.export = getLinksFromMd;
+module.exports.getLinksFromMd = getLinksFromMd;
 
 function getLinksFromMd(str){
   let markdowns = markdownsSelection(str);
-  let obj = transformMarkdowInObject(markdowns);
+  let finalArray = transformMarkdowInArrayOfObjects(markdowns);
+  return finalArray;
 }
 function markdownsSelection(mensage){
-  let regex = /(\[\w*\])\((http(s)*:\/\/)*\w+(\.*\w\/*){1,}\)/g;
+  let regex = /(\[\w+\W*\s*\w*\])\((http(s)*:\/\/)*\w+(\.*\w\/*){1,}\)/g;
   let array = mensage.match(regex);
   return array;
 }
-function transformMarkdowInObject(arr){
-  let obj = {};
-  let arrayOfObject = [];
-  for(a in arr){
-    let regexTextAndHref = (array[a]).match(/(http(s)*:\/\/)*\w+(\.*\w\/*){1,}/g);
-    obj['href'] = regexTextAndHref[0];
-    obj['text'] = regexTextAndHref[1];	
-    arrayOfObject.push(obj);
+function transformMarkdowInArrayOfObjects(array){
+  let arrayOfObjects = [];
+  for(let a in array){
+    let obj = {};
+    let regexText = (array[a]).match(/(\[.*\])*/g);
+    let text = (regexText[0]).replace(/([\[\]])*/g, '');
+    let regexHref = (array[a]).match(/(\(.*\))/g);
+    let href = (regexHref[0]).replace(/([\(\)])*/g, '');
+    obj['href'] = href;
+    obj['text'] = text;	
+    arrayOfObjects.push(obj);
   }
-  return obj;
+  return arrayOfObjects;
 }
 
-// ainda errado
-// var array3 = [];
-// for(a in array){
-//   console.log(array[a]);
-//   let regexTextAndHref = (array[a]).match(/(http(s)*:\/\/)*\w+(\.*\w\/*){1,}/g);	
-//   obj['href'] = regexTextAndHref[0];
-//   obj['text'] = regexTextAndHref[1];	
-//   array3.push(obj);
-//   console.log(array3);
-// }
+
+// http://www.chaijs.com/api/bdd/#method_throw

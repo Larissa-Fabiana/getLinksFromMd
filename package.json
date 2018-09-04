@@ -1,0 +1,31 @@
+{
+  "name": "getlinksfrommd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^5.5.0",
+    "json": "^9.0.6",
+    "nyc": "^13.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Larissa-Fabiana/getLinksFromMd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Larissa-Fabiana/getLinksFromMd/issues"
+  },
+  "homepage": "https://github.com/Larissa-Fabiana/getLinksFromMd#readme"
+}
