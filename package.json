@@ -1,6 +1,6 @@
 {
   "name": "larissa-getlinksfrommd",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -22,7 +22,8 @@
     "type": "git",
     "url": "git+https://github.com/Larissa-Fabiana/getLinksFromMd.git"
   },
-  "author": "",
+  "keywords": [],
+  "author": "Larissa Fabiana",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Larissa-Fabiana/getLinksFromMd/issues"
