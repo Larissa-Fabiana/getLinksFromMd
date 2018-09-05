@@ -10,8 +10,8 @@ Exemplos de uso:
 
 ```
 $node
-> let arr = require('getLinksFromMd')
->arr(('[labore](http://en.wiktionary.org/wiki/labore) et [dolore](https://en.wiktionary.org/wiki/dolore) magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. [foo](http://foo.com).'));
+> let arr = require('larissa-getlinksfrommd')
+>arr.getLinksFromMd(('[labore](http://en.wiktionary.org/wiki/labore) et [dolore](https://en.wiktionary.org/wiki/dolore) magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. [foo](http://foo.com).'));
 ```
 
 ## Versão 1.0.0
