@@ -4,6 +4,16 @@ const getLinksFromMd = index.getLinksFromMd;
 const expect = chai.expect;
 
 describe('getLinksFromMd()', () =>{
+  describe('Errors', () => {
+    it('Should return \'Insira pelo menos um markdown\' to \'\' ', () =>{
+      var badFn = function () { getLinksFromMd('') };
+      expect(badFn).to.throw('Insira pelo menos um markdown');
+    });
+    it('Should return \'Insira apenas strings\' to 123456 ', () =>{
+      var badFn = function () { getLinksFromMd(123456) };
+      expect(badFn).to.throw('Insira apenas strings');
+    });
+  })
   describe('True', () =>{
     it('Should return [ { href: \'http://foo.com\',  text: \'foo-2\' } ] to \'[foo-2](http://foo.com)\'', () =>{
       expect(getLinksFromMd('[foo-2](http://foo.com)')).to.deep.equal([ { href: 'http://foo.com', text: 'foo-2' } ]);
@@ -19,8 +29,20 @@ describe('getLinksFromMd()', () =>{
     });
   });
   describe('False', () =>{
+    it('Should return [] to \'only a string\'', () =>{
+      expect(getLinksFromMd('only a string')).to.deep.equal([]);
+    });
     it('Should return [] to \'[](http://foo.com)\'', () =>{
       expect(getLinksFromMd('[](http://foo.com)')).to.deep.equal([]);
+    });
+    it('Should return [] to \'[bla]\'', () =>{
+      expect(getLinksFromMd('[bla]')).to.deep.equal([]);
+    });
+    it('Should return [] to \'[bla]()\'', () =>{
+      expect(getLinksFromMd('[bla]()')).to.deep.equal([]);
+    });
+    it('Should return [] to \'(https://www.google.com/)\'', () =>{
+      expect(getLinksFromMd('(https://www.google.com/)')).to.deep.equal([]);
     });
   });
 })
